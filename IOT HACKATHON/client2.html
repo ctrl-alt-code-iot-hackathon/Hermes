@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+  <title>PACKAGE TRACKER</title>
+  <link rel="stylesheet" type="text/css" href="client2.css"/>
+  <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+</head>
+<body>
+  <input type="text" id="fname" placeholder="RFID"><br>
+  <input type="submit" id = "submit" value="Submit">
+  <div id = "map" style = "width: 500px; height: 500px"></div> 
+  <!-- <script type="text/javascript" src="client2.js"></script> -->
+  <script type="text/javascript">
+    var socket = io.connect('http://localhost:4000');
+      var submit = document.getElementById("submit");
+      
+      submit.addEventListener("click", function(){
+        console.log("hello");
+         socket.on('chat', function(data1){
+          console.log(data1);
+            });
+      
+
+         // Creating map options
+         var mapOptions = {
+            center: [12.82122, 80.03829],
+            zoom: 10
+         }
+         
+         // Creating a map object
+         var map = new L.map('map', mapOptions);
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         var marker = new L.Marker([12.82122, 80.03829]);
+         //var marker = new L.Marker(track);
+         
+         marker.addTo(map);
+
+         marker.bindPopup('Package1').openPopup();
+         marker.addTo(map); 
+         
+         // Adding layer to the map
+         map.addLayer(layer);
+     }); 
+  </script>
+</body>
+</html> 
+
