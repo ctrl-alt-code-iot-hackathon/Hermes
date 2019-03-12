@@ -1,9 +1,7 @@
-import RPi.GPIO as GPIO
-import SimpleMFRC522
-reader = SimpleMFRC522.SimpleMFRC522()
-try:
-        id, text = reader.read()
-        print(id)
-        print(text)
-finally:
-        GPIO.cleanup()
+import serial                                                  #import serial module
+
+   ser = serial.Serial ("/dev/ttyAMA0")                           #Open named port 
+   ser.baudrate = 9600                                            #Set baud rate to 9600
+   data = ser.read(12)
+   print "hello"                                            #Read 12 characters from serial port to data
+  # ser.close ()                                                   #Close port             
