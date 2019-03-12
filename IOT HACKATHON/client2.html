@@ -9,12 +9,12 @@
   <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </head>
 <body>
-  <input type="text" id="fname" placeholder="RFID"><br>
-  <input type="submit" id = "submit" value="Submit">
-  <div id = "map" style = "width: 500px; height: 500px"></div> 
+  <input type="text" id="fname" placeholder="RFID" style="font-size: 1.25em; height:1em; width:12em; text-align:center"><br>
+  <input type="submit" id = "submit" value="Submit" style="font-size: 1.25em; height:2em; width:12em; text-align:center">
+  <div id = "map" style = "width: 1250px; height: 550px"></div> 
   <!-- <script type="text/javascript" src="client2.js"></script> -->
   <script type="text/javascript">
-    var socket = io.connect('http://localhost:4000');
+    var socket = io.connect('http://localhost:3000');
       var submit = document.getElementById("submit");
       
       submit.addEventListener("click", function(){

@@ -8,7 +8,7 @@ var session;
 
 var socket = require('socket.io');
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 var server = app.listen(port,function(){
 	console.log(`LISTENING AT PORT ${port}...`);
 });
